@@ -7,6 +7,7 @@ class Dash
 define preparation
     download url -> dash.tar.gz
     verify sha256 dash.tar.gz
+    extract dash.tar.gz -> source
 
 define build
     cd source
@@ -14,4 +15,7 @@ define build
     run make
 
 define install
-    run make install
+    cd source
+    run make install DESTDIR=/opt/apm
+    run mkdir -p /opt/apm/bin
+    run cp source/src/dash /opt/apm/bin/dash
