@@ -16,7 +16,7 @@ define build
     run "make"
 
 define install
-    cd source/dsah-0.5.12
+    cd source/dash-0.5.12
     run "make install DESTDIR=/opt/apm"
     run "mkdir -p /opt/apm/bin"
     run "cp src/dash /opt/apm/bin/dash"
