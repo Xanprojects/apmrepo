@@ -10,7 +10,7 @@ define preparation
     download url -> wget.tar.gz
     verify sha256 wget.tar.gz
     extract wget.tar.gz -> source
-    cd source/wget
+    cd source/wget-1.25.0
 
 define build
     run "./configure"
