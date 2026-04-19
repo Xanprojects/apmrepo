@@ -22,7 +22,7 @@ define install
 
     run "make install DESTDIR=/opt/apm"
     run "mkdir -p /opt/apm/bin"
-    run "cp src/wget /opt/apm/bin/wget"
+    run "cp /opt/apm/usr/bin/wget /opt/apm/bin/wget"
 
     # 🔴 install 後記錄檔案
     run "find /opt/apm -type f | sort > /tmp/apm_after.txt"
