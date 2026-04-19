@@ -1,12 +1,17 @@
-class Dash On Formula
-     homepage : "http://gondor.apana.org.au/~herbert/dash/"
-     url : "http://apana.org.au"
-     # 你可以使用指令 `sha256sum` 來產生實際的校驗值
-     sha256 : "6a474ac46e8b0b32916c4c60df694c82058d3297d8b385b74508030ca4a8f28a" 
+class Dash
+    homepage "http://gondor.apana.org.au/~herbert/dash/"
+    url "http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.12.tar.gz"
+    sha256 "6a474ac46e8b0b32916c4c60df694c82058d3297d8b385b74508030ca4a8f28a"
+    version "0.5.12"
 
-     define install
-          system "./configure"
-          system "make"
-          system "echo 'Dash編譯成功！'"
-     enddef
-end
+define preparation
+    download url -> dash.tar.gz
+    verify sha256 dash.tar.gz
+
+define build
+    cd source
+    run ./configure
+    run make
+
+define install
+    run make install
