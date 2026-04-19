@@ -13,7 +13,7 @@ define preparation
     cd source/pkg-config-0.29
 
 define build
-    run "./configure"
+    run "./configure --with-internal-glib"
     run "make"
 
 define install
