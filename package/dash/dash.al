@@ -7,7 +7,6 @@ version "0.5.12"
 
 define preparation
     run "mkdir -p /opt/apm/package/dash/"
-    download https://raw.githubusercontent.com/Xanprojects/apmrepo/refs/heads/main/package/dash/manifest -> /opt/apm/package/dash/manifest
     download url -> dash.tar.gz
     verify sha256 dash.tar.gz
     extract dash.tar.gz -> source
@@ -18,6 +17,15 @@ define build
     run "make"
 
 define install
+    # 🔴 install 前記錄檔案
+    run "find /opt/apm -type f | sort > /tmp/apm_before.txt"
+
     run "make install DESTDIR=/opt/apm"
     run "mkdir -p /opt/apm/bin"
     run "cp src/dash /opt/apm/bin/dash"
+
+    # 🔴 install 後記錄檔案
+    run "find /opt/apm -type f | sort > /tmp/apm_after.txt"
+
+    # 🔴 diff 出新增檔案 = manifest
+    run "comm -13 /tmp/apm_before.txt /tmp/apm_after.txt > /opt/apm/package/dash/manifest"
