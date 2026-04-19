@@ -13,7 +13,7 @@ define preparation
     cd source/pkg-config-0.29
 
 define build
-    run "./configure --with-internal-glib"
+    run "./configure --with-internal-glib LDFLAGS='-framework CoreFoundation -framework Carbon'"
     run "make"
 
 define install
