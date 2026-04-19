@@ -6,7 +6,7 @@ sha256 "766e48423e79359ea31e41db9e5c289675947a7fcf2efdcedb726ac9d0da3784"
 version "1.25.0"
 
 define preparation
-    run "mkdir -p /opt/apm/package/dash/"
+    run "mkdir -p /opt/apm/package/wget/"
     download url -> wget.tar.gz
     verify sha256 wget.tar.gz
     extract wget.tar.gz -> source
