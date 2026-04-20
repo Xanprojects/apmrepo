@@ -1,4 +1,4 @@
-class Dash
+class pkg-config
 
 homepage "https://www.freedesktop.org/wiki/Software/pkg-config"
 url "https://pkgconfig.freedesktop.org/releases/pkg-config-0.29.tar.gz"
