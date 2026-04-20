@@ -13,14 +13,14 @@ define preparation
     cd source/dash-0.5.12
 
 define build
-    run "./configure"
-    run "make"
+    run "./configure > /dev/null 2>&1"
+    run "make > /dev/null 2>&1"
 
 define install
     # 🔴 install 前記錄檔案
     run "find /opt/apm -type f | sort > /tmp/apm_before.txt"
 
-    run "make install DESTDIR=/opt/apm"
+    run "make install DESTDIR=/opt/apm > /dev/null 2>&1"
     run "mkdir -p /opt/apm/bin"
     run "cp src/dash /opt/apm/bin/dash"
 
