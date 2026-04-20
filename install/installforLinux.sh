@@ -3,7 +3,7 @@
 echo "Downloads file..."
 cd ~
 wget https://github.com/Xanprojects/apmrepo/raw/refs/heads/main/install/src/apmlinux --quiet
-rm -rf /usr/local/bin/apm
-mv apmlinux /usr/local/bin/apm
+sudo rm -rf /usr/local/bin/apm
+sudo mv apmlinux /usr/local/bin/apm
 sudo chmod +x /usr/local/bin/apm
 echo "Success"
