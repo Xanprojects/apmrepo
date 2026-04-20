@@ -17,15 +17,11 @@ define build
     run "make"
 
 define install
-    # 🔴 install 前記錄檔案
     run "find /opt/apm -type f | sort > /tmp/apm_before.txt"
 
     run "make install DESTDIR=/opt/apm"
     run "mkdir -p /opt/apm/bin"
     run "cp /opt/apm/usr/local/bin/pkg-config /opt/apm/bin/pkg-config"
 
-    # 🔴 install 後記錄檔案
     run "find /opt/apm -type f | sort > /tmp/apm_after.txt"
-
-    # 🔴 diff 出新增檔案 = manifest
     run "comm -13 /tmp/apm_before.txt /tmp/apm_after.txt > /opt/apm/package/pkg-config/manifest"
