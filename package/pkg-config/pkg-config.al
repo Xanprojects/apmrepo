@@ -13,7 +13,7 @@ define preparation
     cd source/pkg-config-0.29
 
 define build
-    run "case $(uname) in Darwin) ./configure --with-internal-glib LDFLAGS='-framework CoreFoundation -framework Carbon' ;; *) ./configure --with-internal-glib ;; esac"
+    run "case $(uname) in Darwin) ./configure CFLAGS="-Wno-error=format-nonliteral" --with-internal-glib LDFLAGS='-framework CoreFoundation -framework Carbon' ;; *) ./configure --with-internal-glib CFLAGS="-Wno-error=format-nonliteral" ;; esac"
     run "make"
 
 define install
