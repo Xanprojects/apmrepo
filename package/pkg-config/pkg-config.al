@@ -13,7 +13,7 @@ define preparation
     cd source/pkg-config-0.29
 
 define build
-    run "./configure --with-internal-glib LDFLAGS='-framework CoreFoundation -framework Carbon'"
+    run "[ "$(uname)" = "Darwin" ] && ./configure --with-internal-glib LDFLAGS='-framework CoreFoundation -framework Carbon' || ./configure --with-internal-glib"
     run "make"
 
 define install
